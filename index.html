@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1>Hola mundo con Webhook en lenguaje Python</h1>
+  <div id="response"></div>
+
+  <script>
+    async function fetchData() {
+      try {
+        const response = await fetch('http://127.0.0.1:5000/AppWebhook');
+        const data = await response.json();
+        document.getElementById('response').textContent = data.message;
+      } catch (error) {
+        document.getElementById('response').textContent = 'Error al conectar con el servidor.';
+      }
+    }
+
+    fetchData();  
+  </script>
+</body>
+</html>
